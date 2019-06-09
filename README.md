@@ -1,5 +1,5 @@
 # myProject
-分模块的ssm项目
+分模块的ssm项目,只修改了web,admin同web.
 
 主要六个模块:
 web 表示前台项目,或者手机端,h5端
