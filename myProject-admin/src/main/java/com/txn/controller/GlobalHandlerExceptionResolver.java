@@ -3,7 +3,7 @@ package com.txn.controller;
 
 import com.txn.common.ResponseObject;
 import com.txn.common.ResultCode;
-import com.txn.exception.ZjPortException;
+import com.txn.exception.MyprojectException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -46,8 +46,8 @@ public class GlobalHandlerExceptionResolver {
     }
 
     @ResponseBody
-    @ExceptionHandler({ZjPortException.class})
-    public ResponseObject zjPortException(ZjPortException e) {
+    @ExceptionHandler({MyprojectException.class})
+    public ResponseObject zjPortException(MyprojectException e) {
         ResponseObject result = new ResponseObject();
         result.setStatus(ResultCode.INVALID_ARGUMENT.getErrorCode());
         result.setMsg(e.getMsg());

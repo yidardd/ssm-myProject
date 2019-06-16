@@ -1,26 +1,26 @@
 package com.txn.exception;
 
-public class ZjPortException extends RuntimeException {
+public class MyprojectException extends RuntimeException {
     private String msg;
     private int code = -2;
 
-    public ZjPortException(String msg) {
+    public MyprojectException(String msg) {
         super(msg);
         this.msg = msg;
     }
 
-    public ZjPortException(String msg, Throwable e) {
+    public MyprojectException(String msg, Throwable e) {
         super(msg, e);
         this.msg = msg;
     }
 
-    public ZjPortException(String msg, int code) {
+    public MyprojectException(String msg, int code) {
         super(msg);
         this.msg = msg;
         this.code = code;
     }
 
-    public ZjPortException(String msg, int code, Throwable e) {
+    public MyprojectException(String msg, int code, Throwable e) {
         super(msg, e);
         this.msg = msg;
         this.code = code;

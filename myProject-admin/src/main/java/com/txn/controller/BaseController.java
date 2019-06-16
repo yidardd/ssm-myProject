@@ -3,7 +3,7 @@ package com.txn.controller;
 
 import com.txn.common.ResponseObject;
 import com.txn.common.ResultCode;
-import com.txn.exception.ZjPortException;
+import com.txn.exception.MyprojectException;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,7 +18,7 @@ public abstract class BaseController {
             session.removeAttribute("verifyCode");
             return;
         }
-        throw new ZjPortException("验证码错误");
+        throw new MyprojectException("验证码错误");
     }
 
     protected ResponseObject returnResponse(Object page) {
