@@ -34,6 +34,7 @@
         <ch.qos.logback-version>1.2.3</ch.qos.logback-version>
 
         <tomcat-version>7.0.54</tomcat-version>
+        <shiro.version>1.4.2</shiro.version>
 
     </properties>
 

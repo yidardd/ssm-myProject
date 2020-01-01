@@ -17,22 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 @ResponseBody
 @Controller
 @Slf4j
-public class TestController extends BaseController {
+@RequestMapping("/post")
+public class TestPostController extends BaseController {
 
     @Autowired
     private TestService testService;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public ResponseObject test(HttpServletRequest request, Model model) {
-        ResponseObject responseObject = new ResponseObject();
-        String test = testService.test();
-        log.error("aaa");
-        log.info("aaa");
-        responseObject.success("ok");
-        return responseObject;
-    }
-
-    @RequestMapping(value = "/test1", method = RequestMethod.GET)
+    @RequestMapping(value = "/test1", method = RequestMethod.POST)
     public ResponseObject test1(Integer i) {
         ResponseObject responseObject = new ResponseObject();
         log.error("aaa");
@@ -41,7 +32,7 @@ public class TestController extends BaseController {
         return responseObject;
     }
 
-    @RequestMapping(value = "/test2", method = RequestMethod.GET)
+    @RequestMapping(value = "/test2", method = RequestMethod.POST)
     public ResponseObject test2(@RequestParam("i") Integer i) {
         ResponseObject responseObject = new ResponseObject();
         log.error("aaa");
@@ -49,7 +40,8 @@ public class TestController extends BaseController {
         responseObject.success("ok");
         return responseObject;
     }
-    @RequestMapping(value = "/test3", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/test3", method = RequestMethod.POST)
     public ResponseObject test3(User user) {
         ResponseObject responseObject = new ResponseObject();
         log.error("aaa");
@@ -58,14 +50,15 @@ public class TestController extends BaseController {
         return responseObject;
     }
 
-    @RequestMapping(value = "/test4", method = RequestMethod.GET)
-    public ResponseObject test4(@RequestParam("user") User user) {
+    @RequestMapping(value = "/test4", method = RequestMethod.POST)
+    public ResponseObject test4(@RequestBody User user) {
         ResponseObject responseObject = new ResponseObject();
         log.error("aaa");
         log.info("aaa");
         responseObject.success("ok");
         return responseObject;
     }
+
 
 
 
