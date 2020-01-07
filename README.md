@@ -11,3 +11,4 @@ domain 放各种对象.
 
 然后common里面引用domain,然后dao里面引用common,根据依赖传递,这样就能够正常开始写项目啦!
 
+新增shiro学习:https://blog.csdn.net/qq_38366063/article/details/103850815
