@@ -13,6 +13,10 @@
 			<param-name>targetFilterLifecycle</param-name>
 			<param-value>true</param-value>
 		</init-param>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>shiroFilter</param-value>
+		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>shiroFilter</filter-name>

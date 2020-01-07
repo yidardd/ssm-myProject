@@ -3,9 +3,9 @@
 	<contextName>lvchu-bos-platform</contextName>
 
 	<appender name="ROOT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-	    <file>/qinwell/logs/myProject.log</file>
+	    <file>/yida/logs/myProject.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>/qinwell/logs/%d{yyyy-MM-dd}/myProject.%i.log</FileNamePattern>
+			<FileNamePattern>/yida/logs/%d{yyyy-MM-dd}/myProject.%i.log</FileNamePattern>
 			<MaxHistory>100</MaxHistory>
 			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- or whenever the file size reaches 100MB -->
@@ -20,9 +20,9 @@
 	
 	<appender name="ERROR_FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/qinwell/logs/myProject-error.log</file>
+        <file>/yida/logs/myProject-error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>/qinwell/logs/%d{yyyy-MM-dd}/myProject-error.%i.log</FileNamePattern>
+            <FileNamePattern>/yida/logs/%d{yyyy-MM-dd}/myProject-error.%i.log</FileNamePattern>
             <MaxHistory>100</MaxHistory>
             <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

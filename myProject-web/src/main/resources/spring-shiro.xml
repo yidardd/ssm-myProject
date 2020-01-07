@@ -8,7 +8,6 @@
         <property name="filterChainDefinitions">
             <value>
                 /login = anon
-                /swagger-ui.html#/ = anon
                 /logout = logout
                 /** = authc
             </value>

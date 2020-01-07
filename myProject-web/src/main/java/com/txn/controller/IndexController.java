@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
+
 /**
  * @author <a href="mailto:15268179013@139.com">yida</a>
  * @Version 2020-01-01 15:42
@@ -35,6 +37,18 @@ public class IndexController {
     public ResponseObject getUser() {
         ResponseObject responseObject = new ResponseObject();
         responseObject.success(true);
+        CompletableFuture.runAsync(() -> {
+            Subject subject = SecurityUtils.getSubject();
+            subject.getSession().setAttribute("aaa","aaa");
+            boolean permitted = subject.isPermitted("user:list");
+            System.out.println("-------" + permitted);
+        });
+        new Thread(() -> {
+            Subject subject = SecurityUtils.getSubject();
+            Object aaa = subject.getSession().getAttribute("aaa");
+            boolean permitted = subject.isPermitted("user:list");
+            System.out.println("-------" + permitted);
+        }).start();
         return responseObject;
     }
 
