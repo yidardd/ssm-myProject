@@ -1,6 +1,8 @@
 package com.txn.config;
 
 import net.sf.ehcache.CacheManager;
+import org.apache.shiro.authc.credential.CredentialsMatcher;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.realm.Realm;
@@ -145,6 +147,13 @@ public class ShiroConfig {
     @Bean
     public Realm realm() {
         ShiroRealm shiroRealm = new ShiroRealm();
+
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        hashedCredentialsMatcher.setHashIterations(1);
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+//        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
+//        hashedCredentialsMatcher.setHashAlgorithmName();
+        shiroRealm.setCredentialsMatcher(hashedCredentialsMatcher);
         return shiroRealm;
     }
 

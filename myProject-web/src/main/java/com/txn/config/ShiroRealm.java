@@ -8,12 +8,10 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Slf4j
 public class ShiroRealm extends AuthorizingRealm {
@@ -23,14 +21,17 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-       log.info("-doGetAuthenticationInfo登录认证-");
+        log.info("-doGetAuthenticationInfo登录认证-");
         if ("admin".equals(token.getPrincipal())) {
             User user = new User();
             user.setId(1);
             user.setUserName("admin");
-            user.setPassword("admin");
-            ByteSource salt = ByteSource.Util.bytes("abcd123");
-            return new SimpleAuthenticationInfo(user, user.getUserName(), this.getName());
+            user.setPassword("a24676a269f6bfa53827470c4ea8cf24");
+//            user.setPassword("admin");
+            ByteSource bytes = ByteSource.Util.bytes("1");
+            SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(user, user.getPassword(), bytes, this.getName());
+
+            return simpleAuthenticationInfo;
         }
         return null;
     }
