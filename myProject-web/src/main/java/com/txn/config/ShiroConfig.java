@@ -34,7 +34,7 @@ import java.util.Collection;
  * @Version 1.0
  * @Description ShiroConfig
  */
-@Configuration
+//@Configuration
 public class ShiroConfig {
 
     @Bean

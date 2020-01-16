@@ -1,6 +1,8 @@
 package com.txn.controller;
 
 import com.txn.common.ResponseObject;
+import com.txn.util.JwtToken;
+import com.txn.util.JwtUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -27,9 +29,10 @@ public class IndexController {
             responseObject.success("登录失败");
             return responseObject;
         }
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
-        SecurityUtils.getSubject().login(usernamePasswordToken);
-        responseObject.success("ok");
+//        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
+        String usernamePasswordToken = JwtUtil.sign(username, password);
+        SecurityUtils.getSubject().login(new JwtToken(usernamePasswordToken));
+        responseObject.success(usernamePasswordToken);
         return responseObject;
     }
 
@@ -39,7 +42,7 @@ public class IndexController {
         responseObject.success(true);
         CompletableFuture.runAsync(() -> {
             Subject subject = SecurityUtils.getSubject();
-            subject.getSession().setAttribute("aaa","aaa");
+            subject.getSession().setAttribute("aaa", "aaa");
             boolean permitted = subject.isPermitted("user:list");
             System.out.println("-------" + permitted);
         });
@@ -58,6 +61,14 @@ public class IndexController {
         Subject subject = SecurityUtils.getSubject();
         boolean permitted = subject.isPermitted("user:list");
         responseObject.success(permitted);
+        return responseObject;
+    }
+
+    @RequestMapping(value = "/unauthorize", method = RequestMethod.GET)
+    public ResponseObject unauthorize() {
+        ResponseObject responseObject = new ResponseObject();
+        responseObject.failed("没有权限");
+        responseObject.setStatus(401);
         return responseObject;
     }
 
