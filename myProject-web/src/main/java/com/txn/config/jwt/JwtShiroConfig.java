@@ -105,6 +105,7 @@ public class JwtShiroConfig {
                 "/login = anon\n" +
                         "/logout = logout\n" +
                         "/user = jwt,authc,perms[user:list]\n" +
+                        "/user2 = jwt,authc,perms[user:list2]\n" +
                         "/** = jwt\n" +
                         "");
 

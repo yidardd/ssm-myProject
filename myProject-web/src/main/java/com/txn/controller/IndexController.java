@@ -64,6 +64,15 @@ public class IndexController {
         return responseObject;
     }
 
+    @RequestMapping(value = "/user2", method = RequestMethod.GET)
+    public ResponseObject user2() {
+        ResponseObject responseObject = new ResponseObject();
+        Subject subject = SecurityUtils.getSubject();
+        boolean permitted = subject.isPermitted("user:list2");
+        responseObject.success(permitted);
+        return responseObject;
+    }
+
     @RequestMapping(value = "/unauthorize", method = RequestMethod.GET)
     public ResponseObject unauthorize() {
         ResponseObject responseObject = new ResponseObject();
