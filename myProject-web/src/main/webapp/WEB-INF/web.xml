@@ -25,7 +25,7 @@
 
 
 	<!-- 编码过滤器 -->
-	<filter>
+	<filter>JwtFilter
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<async-supported>true</async-supported>

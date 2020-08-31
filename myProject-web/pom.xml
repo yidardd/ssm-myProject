@@ -146,7 +146,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
+      <!--  <resources>
             <resource>
                 <directory>src/main/java</directory>
                 <filtering>false</filtering>
@@ -155,11 +155,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-            <resource>
-                <directory>../pen-config/src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
+        </resources>-->
     </build>
 
 

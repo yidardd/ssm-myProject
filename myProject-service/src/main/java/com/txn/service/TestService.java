@@ -7,4 +7,6 @@ public interface TestService {
 
     String test();
 
+    String printStr();
+
 }
