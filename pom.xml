@@ -32,7 +32,7 @@
         <springmvc.swagger-version>1.0.2</springmvc.swagger-version>
 
         <org.slf4j-version>1.7.25</org.slf4j-version>
-        <ch.qos.logback-version>1.2.3</ch.qos.logback-version>
+        <ch.qos.logback-version>1.2.9</ch.qos.logback-version>
 
         <tomcat-version>7.0.54</tomcat-version>
         <shiro.version>1.4.2</shiro.version>
