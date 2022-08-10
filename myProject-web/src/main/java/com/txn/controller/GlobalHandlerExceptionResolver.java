@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 @ControllerAdvice
 public class GlobalHandlerExceptionResolver {
 
+
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @ExceptionHandler(Exception.class)
