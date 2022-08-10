@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 /**
  * Created by stack on 2019/4/20.
@@ -42,6 +43,15 @@ public class GlobalHandlerExceptionResolver {
 
         result.setStatus(ResultCode.INTERNAL_ERROR.getErrorCode());
         result.setMsg(e.getMessage());
+        return result;
+    }
+
+    @ResponseBody
+    @ExceptionHandler({MaxUploadSizeExceededException.class})
+    public ResponseObject maxUploadSizeExceededException(MaxUploadSizeExceededException e) {
+        ResponseObject result = new ResponseObject();
+        result.setStatus(ResultCode.INVALID_ARGUMENT.getErrorCode());
+        result.setMsg("文件过大");
         return result;
     }
 

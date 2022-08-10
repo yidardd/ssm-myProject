@@ -9,7 +9,7 @@
             <value>
                 /login = anon
                 /logout = logout
-                /** = authc
+                /** = anon
             </value>
         </property>
         <property name="loginUrl" value="/login" />

@@ -22,6 +22,11 @@ public class TestServiceImpl implements TestService {
   }
 
   @Override
+  public String test(int a) {
+    return null;
+  }
+
+  @Override
   public String printStr() {
     System.out.println("TestServiceImpl  return  printStr");
     return "printStr";

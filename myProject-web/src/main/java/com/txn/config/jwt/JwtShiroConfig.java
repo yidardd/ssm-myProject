@@ -34,7 +34,7 @@ import java.util.HashMap;
  * @Version 1.0
  * @Description ShiroConfig
  */
-@Configuration
+//@Configuration
 public class JwtShiroConfig {
 
     @Bean

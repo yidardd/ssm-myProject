@@ -34,7 +34,7 @@ import java.util.Collection;
  * @Version 1.0
  * @Description ShiroConfig
  */
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
     @Bean
@@ -166,7 +166,8 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitions(" /login = anon\n" +
                 "                /logout = logout\n" +
                 "/user = authc,perms[user:list]\n" +
-                "                /** = authc\n" +
+//                "                /** = authc\n" +
+                "                /** = anon\n" +
                 "");
 
         return shiroFilterFactoryBean;
